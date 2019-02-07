@@ -8,7 +8,65 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.navbar-brand {
+  margin: 0;
+  padding: 6px;
+  border: 3px solid #000;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+#logo {
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-item {
+  border-bottom: 1px solid transparent;
+}
+.nav-item:hover, 
+.nav-item:active {
+  border-color: #000;
+}
+.nav-link {
+  font-weight: bold;
+}
+
+.navbar {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00a0ea+0,00e874+100 */
+  background: rgb(0,160,234); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(0,160,234,1) 0%, rgba(0,232,116,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,160,234,1) 0%,rgba(0,232,116,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,160,234,1) 0%,rgba(0,232,116,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a0ea', endColorstr='#00e874',GradientType=1 ); /* IE6-9 */
+
+  margin-bottom: 1rem;
+}
+
+.jumbotron {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('https://images.unsplash.com/photo-1525248132919-ebe273952a58?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=1080&q=80') center 0 / cover no-repeat;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+hr {
+  background: #fff;
+}
+
+.jumbotron > .container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+  padding: 30px;
 }
