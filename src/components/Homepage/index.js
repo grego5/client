@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PostTimeline from './PostTimeline'
+import PostTimeline from '../PostTimeline'
 
 const Homepage = ({ currentUser }) => {
    return (currentUser.isAuthenticated) ? (
