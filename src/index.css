@@ -70,3 +70,25 @@ hr {
   border-radius: 2rem;
   padding: 30px;
 }
+
+.card-aside {
+  display: flex;
+  flex-direction: column;
+  max-width: 160px;
+  padding: 5px;
+  border-right: 1px solid #DFDFDF;
+}
+
+.card-aside img {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.post.card {
+  width: 100%;
+  margin: 5px;
+}

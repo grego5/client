@@ -3,8 +3,10 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Homepage from './Homepage';
 import AuthForm from './AuthForm';
+import PostForm from './PostForm';
 import { authUser } from '../store/actions/auth';
 import { removeError } from '../store/actions/errors';
+import withAuth from '../hocs/withAuth';
 
 const Main = ({ authUser, errors, removeError, currentUser }) => {
    return (
@@ -12,6 +14,7 @@ const Main = ({ authUser, errors, removeError, currentUser }) => {
          <Route exact path="/" 
             render={props => <Homepage
                currentUser={currentUser}
+               errors={errors}
                {...props}
             />}
          />
@@ -21,7 +24,8 @@ const Main = ({ authUser, errors, removeError, currentUser }) => {
                   removeError={removeError}
                   errors={errors}
                   buttonText="Log in" 
-                  heading="Login" {...props} 
+                  heading="Login" 
+                  {...props} 
                   onAuth={authUser}
                />
             )
@@ -32,11 +36,13 @@ const Main = ({ authUser, errors, removeError, currentUser }) => {
                   removeError={removeError}
                   errors={errors}
                   register buttonText="Sign up" 
-                  heading="Register" {...props} 
+                  heading="Register" 
+                  {...props} 
                   onAuth={authUser}
                />
             )
          }} />
+         <Route path="/users/:id/messages/new" component={withAuth(PostForm)} />
       </Switch>
    )
 }

@@ -10,15 +10,14 @@ export function setCurrentUser(user) {
 };
 
 export function logout(){
-   return dispatch => {
+   return function(dispatch) {
       localStorage.clear();
-      console.log(localStorage.jwtToken);
       dispatch(setCurrentUser({}));
    };
 };
 
 export function authUser(type, userData) {
-   return dispatch => {
+   return function(dispatch) {
       return new Promise((resolve, reject) => {
          const options = {
             method: 'post',

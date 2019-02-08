@@ -1,10 +1,15 @@
-export function apiCall(path, options) {
+export function apiCall(path, options = {}) {
    const url = '/api' + path;
 
    if (localStorage.jwtToken) {
-      options = {
-         headers: new Headers({'Authorization': `Bearer ${localStorage.jwtToken}`})
+      const header = ['Authorization', `Bearer ${localStorage.jwtToken}`];
+      if (!options.headers) {
+         options = {
+            ...options,
+            headers: new Headers()
+         }
       }
+      options.headers.set(...header);
    };
 
    return new Promise((resolve, reject) => {

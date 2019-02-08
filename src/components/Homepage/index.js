@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostTimeline from '../PostTimeline'
 
-const Homepage = ({ currentUser }) => {
+const Homepage = ({ currentUser, errors }) => {
    return (currentUser.isAuthenticated) ? (
       <div className="container">
-         <h1 className="text-center">You've made it</h1>
+         <h1 className="text-center">Posts Timeline</h1>
+         {errors.message && (<div className="alert alert-danger">{errors.message}</div>)}
          <PostTimeline />
       </div>
    ) : (

@@ -1,4 +1,4 @@
-import { LOAD_POSTS, REMOVE_POST } from '../actionTypes';
+import { LOAD_POSTS, DELETE_POST } from '../actionTypes';
 
 export default function(state = [], action) {
    let newState;
@@ -6,8 +6,9 @@ export default function(state = [], action) {
       case LOAD_POSTS:
          newState = action.posts;
          break;
-      case REMOVE_POST:
-         newState = state.filter(p => p._id !== action.id)
+      case DELETE_POST:
+         debugger;
+         newState = state.filter(p => p._id !== action.post)
          break;
       default: newState = state;
    };
