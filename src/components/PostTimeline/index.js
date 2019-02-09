@@ -10,14 +10,14 @@ class PostTimeline extends Component {
    }
 
    render() {
-      console.log('timeline rendered');
       const {currentUser, deletePost} = this.props;
-      const posts = this.props.posts.map(p => <PostCard 
+      const posts = this.props.posts.map(p => {
+      return <PostCard
          key={p._id} 
          {...p}
          deletePost={()=>{deletePost(p._id)}}
-         canDelete={currentUser.user.id === p.user._id}
-      />);
+         canDelete={currentUser.user ? currentUser.user.id === p.user._id : false}
+      />});
 
 
       return (

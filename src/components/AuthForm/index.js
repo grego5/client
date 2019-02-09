@@ -11,20 +11,14 @@ class AuthForm extends Component {
       };
    };
 
-   handleChange = e => {
-      this.setState({ [e.target.name]: e.target.value });
-   };
+   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
    handleSubmit = e => {
       e.preventDefault();
       const authType = this.props.register ? 'signup' : 'signin';
       this.props.onAuth(authType, this.state)
-         .then(() => {
-            this.props.history.push('/');
-         })
-         .catch(err=>{
-            return;
-         });
+         .then(() => this.props.history.push('/'))
+         .catch(err => console.log(err));
    };
 
    render(){

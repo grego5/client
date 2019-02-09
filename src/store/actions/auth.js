@@ -1,6 +1,7 @@
 import { apiCall } from '../../services/api'
 import { SET_CURRENT_USER } from '../actionTypes';
 import { addError, removeError } from './errors';
+import jwtDecode from 'jwt-decode';
 
 export function setCurrentUser(user) {
    return {
@@ -27,9 +28,10 @@ export function authUser(type, userData) {
             body: JSON.stringify(userData)
             };
          apiCall(`/auth/${type}`, options)
-            .then(({token, username}) => {
-               localStorage.setItem('jwtToken', token);
-               dispatch(setCurrentUser(username));
+            .then(data => {
+               localStorage.setItem('jwtToken', data.token);
+               const user = jwtDecode(data.token);
+               dispatch(setCurrentUser(user));
                dispatch(removeError());
                resolve();
             })

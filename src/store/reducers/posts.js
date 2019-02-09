@@ -7,7 +7,6 @@ export default function(state = [], action) {
          newState = action.posts;
          break;
       case DELETE_POST:
-         debugger;
          newState = state.filter(p => p._id !== action.post)
          break;
       default: newState = state;
