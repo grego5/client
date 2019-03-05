@@ -9,21 +9,25 @@ class PostTimeline extends Component {
       this.props.getPosts();
    }
 
+   deletePost = (id) => () => {
+      this.props.deletePost(id);
+   }
+
    render() {
-      const {currentUser, deletePost} = this.props;
+      const {currentUser} = this.props;
       const posts = this.props.posts.map(p => {
       return <PostCard
          key={p._id} 
          {...p}
-         deletePost={()=>{deletePost(p._id)}}
+         deletePost={this.deletePost(p._id)}
          canDelete={currentUser.user ? currentUser.user.id === p.user._id : false}
       />});
 
 
       return (
          <div className="row">
-            <UserAside className="col-sm-3" {...currentUser} />
-            <div className="col-sm-6 d-flex flex-column justify-content-center align-items-center w-50 mx-auto">
+            <UserAside className="col-md-3" {...currentUser} />
+            <div className="col-md-9 d-flex flex-column justify-content-center align-items-center w-md-50 mx-auto">
                {posts}
             </div>
          </div>

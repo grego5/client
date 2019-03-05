@@ -6,7 +6,7 @@ const UserAside = props => {
    return (
       <aside className={className}>
          <div className="panel panel-default">
-            <div className="panel-body">
+            <div className="panel-body text-center">
                <img 
                   className="img-thumbnail" 
                   src={image || defaultImage} 

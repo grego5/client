@@ -22,7 +22,7 @@ export function apiCall(path, options = {}) {
             return reject({message: 'Cannot reach the server. Try again later'});
          }
       })
-      .catch(err => console.log(`caought: ${err.message}`));
+      .catch(err => console.log(`caught: ${err.message}`));
    });
 };
 

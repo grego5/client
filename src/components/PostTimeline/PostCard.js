@@ -9,7 +9,7 @@ const PostCard = props => {
    return (
       <div className="post card d-flex flex-row">
          <div className="card-aside">
-            <img src={image || defaultImage} alt={user.username} className="img-fluid w-50"/>
+            <img src={image || defaultImage} alt={user.username} className="img-fluid"/>
             <Link to='/'><h5>@{user.username}</h5></Link>
             <h6 className="card-subtitle mb-2 text-muted">
                <Moment format="Do MMM YYYY">
@@ -19,7 +19,7 @@ const PostCard = props => {
             {canDelete && (<button className="btn btn-link" onClick={deletePost}>Delete</button>)}
             
          </div>
-         <div className="card-body flex-grow-1">
+         <div className="card-body w-75">
             <p className="card-text">{text}</p>
          </div>
       </div>

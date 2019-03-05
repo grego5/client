@@ -7,16 +7,18 @@ class PostForm extends Component {
    constructor(props){
       super(props);
       this.state = {
-         text: '',
+         text: ''
       };
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    };
 
-   handleChange = e => {
+   handleChange(e) {
       this.setState({ [e.target.name]: e.target.value });
-      this.props.removeError();
    };
 
-   handleSubmit = e => {
+   handleSubmit(e) {
       e.preventDefault();
       this.props.createPost(this.state)
          .then(() => this.props.history.push('/'))
@@ -29,7 +31,6 @@ class PostForm extends Component {
       const labelClass = "col-md-2 col-form-label";
       const textBoxClass = "col-md-4";
       const formGroupClass = "form-group row justify-content-md-center";
-
       history.listen(() => removeError());
 
       return (
